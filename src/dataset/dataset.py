@@ -281,7 +281,7 @@ class Dataset(object):
         
         def imread(f):
             if f.endswith('png'):
-                return iio.imread(f, ignoregamma=True)
+                return iio.imread(f)
             else:
                 return iio.imread(f)
             

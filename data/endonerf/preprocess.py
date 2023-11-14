@@ -211,7 +211,7 @@ def load_imgs(img_dir, img_type, num_imgs=None, check_fn=lambda x: True):
         
         def imread(f):
             if f.endswith("png"):
-                return iio.imread(f, ignoregamma=True)
+                return iio.imread(f)
             else:
                 return iio.imread(f)
         
