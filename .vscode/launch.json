@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Pre-stereomis",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/data/stereomis/preprocess.py",
+            "args": [
+                "--dset_dir",
+                "${workspaceFolder}/data/stereomis/dataset/scene1_down"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Pre-endonerf",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/data/endonerf/preprocess.py",
+            "args": [
+                "--dset_dir",
+                "${workspaceFolder}/data/endonerf/dataset/pulling_soft_tissues"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "train",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trainer/trainer_endosurf.py",
+            "args": [
+                "--cfg",
+                "${workspaceFolder}/configs/endosurf/custom/test.yml",
+                "--mode", 
+                "train"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        }
+    ]
+}

@@ -77,10 +77,12 @@ class Dataset(object):
         self.depth_masks = torch.bitwise_and(self.depths > self.near, self.depths <self.far) * 1.0
         
         mask_type = info["mask_type"]
-        if mask_type != None:
-            self.color_masks = self._load_imgs(info["mask"], mask_type, self.device)
-        else:
-            self.color_masks = torch.ones_like(self.depth_masks)
+        # if mask_type != None:
+        #     self.color_masks = self._load_imgs(info["mask"], mask_type, self.device)
+        #     if self.color_masks.shape[3] > 1:
+        #         self.color_masks = self.color_masks[:, :, :, 0]
+        # else:
+        self.color_masks = torch.ones_like(self.depth_masks)
         self.masks = self.depth_masks * self.color_masks
         
         # Rays
